@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div id="nav_title">
+                <img id="logo" src="images/logo.png">
+
+            </div>
+            <div id="nav_links">
+                <a href="index.html">Home</a>
+                <a href="expenses.html">Past Expenses</a>
+                <a href="about.html">About</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="main_section">
+            <h2>Expenses</h2>
+            <table id="expense-table">
+                <thead>
+                    <tr id="table_main">
+                        <td>Item</td>
+                        <td>Unit price</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr>
+                        <td>
+                            <select>
+                                <option value="">Select Item</option>
+                                <option value="1">Item 1</option>
+                                <option value="2">Item 2</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="number" min="0" class="unit-price">
+                        </td>
+                        <td>
+                            <input type="number" min="0" class="quantity">
+                        </td>
+                        <td>
+                            <input type="text" class="total" value="0" disabled>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr id="total">
+                        <td id="total-table" colspan="3">
+                            Total
+                        </td>
+                        <td id="total-result">
+                            0
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button id="add-btn">Add Item</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Melek ElMokhtar</p>
+    </footer>
+    <script src="main.js" type="module"></script>
+</body>
+
+</html>
