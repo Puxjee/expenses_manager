@@ -39,24 +39,7 @@
                     </tr>
                 </thead>
                 <tbody id="table-body">
-                    <tr>
-                        <td>
-                            <select>
-                                <option value="">Select Item</option>
-                                <option value="1">Item 1</option>
-                                <option value="2">Item 2</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="number" min="0" class="unit-price">
-                        </td>
-                        <td>
-                            <input type="number" min="0" class="quantity">
-                        </td>
-                        <td>
-                            <input type="text" class="total" value="0" disabled>
-                        </td>
-                    </tr>
+                    
                 </tbody>
                 <tfoot>
                     <tr id="total">
@@ -69,7 +52,11 @@
                     </tr>
                 </tfoot>
             </table>
-            <button id="add-btn">Add Item</button>
+            <div>
+                <button id="add-btn">Add Item</button>
+                <button id="remove-btn">Remove Item</button>
+                <button id="log-btn">Log Expenses</button>
+            </div>
         </section>
     </main>
     <footer>

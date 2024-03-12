@@ -85,6 +85,10 @@ body {
   font-weight: 700;
 }
 
+.item-name{
+  width: 100px;
+
+}
 .total,
 .quantity,
 .unit-price {
@@ -96,6 +100,9 @@ table {
   position: relative;
 }
 
+thead td{
+  text-transform: uppercase;
+}
 
 
 footer {
@@ -108,4 +115,52 @@ footer {
   padding: 10px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+#add-btn{
+  background-color: #eec7e2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgb(83, 83, 83);
+}
+
+#add-btn:hover{
+  background-color: #e8b8b8;
+}
+
+#log-btn{
+  background-color: #c7e0ee;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgb(83, 83, 83);
+  margin-top: 20px;
+}
+
+#log-btn:hover{
+  background-color: #a2b6c1;
+}
+
+#remove-btn{
+  background-color: #eed8c7;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgb(83, 83, 83);
+  margin-top: 20px;
+}
+
+#remove-btn:hover{
+  background-color: #e8b8b8;
 }

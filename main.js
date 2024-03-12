@@ -16,6 +16,8 @@ const expensesRef = ref(database, "expensesList");
 
 const addButtonEl = document.getElementById("add-btn");
 const tableBody = document.getElementById("table-body");
+const logBtnEl = document.getElementById("log-btn");
+const removeBtnEl = document.getElementById("remove-btn");
 let sumTotal = 0;
 
 const addExpenseInput = () => {
@@ -23,17 +25,7 @@ const addExpenseInput = () => {
 
   const cells = Array.from({ length: 4 }, () => newRow.insertCell());
 
-  const selectOptions = [
-    { value: "", text: "Select Item" },
-    { value: "1", text: "Item 1" },
-    { value: "2", text: "Item 2" },
-  ];
-
-  const selectHTML = selectOptions
-    .map((option) => `<option value="${option.value}">"${option.text}</option>`)
-    .join("");
-
-  cells[0].innerHTML = `<select>${selectHTML}</select>`;
+  cells[0].innerHTML = `<input type='text' class='item-name'>`;
   cells[1].innerHTML = "<input type='number' min='0' class='unit-price'>";
   cells[2].innerHTML = "<input type='number' min='0' class='quantity'>";
   cells[3].innerHTML = "<input type='text' class='total' disabled value='0'>";
@@ -56,6 +48,46 @@ const calculateTotal = () => {
   document.getElementById("total-result").textContent = overallTotal.toFixed(3);
 };
 
-tableBody.addEventListener("input", calculateTotal);
+const clearTable = () => {
+  tableBody.innerHTML = "";
+  sumTotal = 0;
+  document.getElementById("total-result").textContent = sumTotal;
+};
 
+const detailedExpenses = () => {
+  const rows = tableBody.querySelectorAll("tr");
+  const detailedExpenses = [];
+  rows.forEach((row) => {
+    const expense = {
+      item: row.querySelector(".item-name").value,
+      unitPrice: row.querySelector(".unit-price").value,
+      quantity: row.querySelector(".quantity").value,
+      total: row.querySelector(".total").value,
+    };
+    detailedExpenses.push(expense);
+  });
+  return detailedExpenses;
+};
+
+const logExpenses = () => {
+  const currentDate = new Date().toLocaleDateString();
+  const total = document.getElementById("total-result").textContent;
+  const expense = {
+    date: currentDate,
+    total: total,
+    expenses: detailedExpenses(),
+  };
+
+  push(expensesRef, expense);
+  clearTable();
+};
+
+const removeLastRow = () => {
+  tableBody.deleteRow(-1);
+  calculateTotal();
+};
+
+tableBody.addEventListener("input", calculateTotal);
 addButtonEl.addEventListener("click", addExpenseInput);
+logBtnEl.addEventListener("click", logExpenses);
+removeBtnEl.addEventListener("click", removeLastRow);
